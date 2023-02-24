@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="100">
+  <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
+    <logicalFolder name="HeaderFiles"
+                   displayName="Header Files"
+                   projectFiles="true">
+      <itemPath>rbutton.h</itemPath>
+      <itemPath>rbuttongroup.h</itemPath>
+      <itemPath>rdtool.h</itemPath>
+      <itemPath>rpane.h</itemPath>
+      <itemPath>rprefs.h</itemPath>
+      <itemPath>rprefsdialog.h</itemPath>
+      <itemPath>version.h</itemPath>
+    </logicalFolder>
+    <logicalFolder name="ResourceFiles"
+                   displayName="Resource Files"
+                   projectFiles="true">
+    </logicalFolder>
+    <logicalFolder name="SourceFiles"
+                   displayName="Source Files"
+                   projectFiles="true">
+      <itemPath>main.cpp</itemPath>
+      <itemPath>rbutton.cpp</itemPath>
+      <itemPath>rbuttongroup.cpp</itemPath>
+      <itemPath>rdtool.cpp</itemPath>
+      <itemPath>rpane.cpp</itemPath>
+      <itemPath>rprefs.cpp</itemPath>
+      <itemPath>rprefsdialog.cpp</itemPath>
+    </logicalFolder>
+    <logicalFolder name="TestFiles"
+                   displayName="Test Files"
+                   projectFiles="false"
+                   kind="TEST_LOGICAL_FOLDER">
+    </logicalFolder>
+    <logicalFolder name="ExternalFiles"
+                   displayName="Important Files"
+                   projectFiles="false"
+                   kind="IMPORTANT_FILES_FOLDER">
+      <itemPath>Makefile</itemPath>
+    </logicalFolder>
+  </logicalFolder>
+  <projectmakefile>Makefile</projectmakefile>
+  <confs>
+    <conf name="Debug" type="4">
+      <toolsSet>
+        <compilerSet>default</compilerSet>
+        <dependencyChecking>true</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <qt>
+        <modules>core gui widgets</modules>
+      </qt>
+      <compileType>
+      </compileType>
+      <item path="main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="rbutton.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="rbutton.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="rbuttongroup.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="rbuttongroup.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="rdtool.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="rdtool.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="rpane.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="rpane.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="rprefs.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="rprefs.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="rprefsdialog.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="rprefsdialog.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="version.h" ex="false" tool="3" flavor2="0">
+      </item>
+    </conf>
+    <conf name="Release" type="4">
+      <toolsSet>
+        <compilerSet>default</compilerSet>
+        <dependencyChecking>true</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <qt>
+        <buildMode>1</buildMode>
+        <modules>core gui widgets</modules>
+      </qt>
+      <compileType>
+        <cTool>
+          <developmentMode>5</developmentMode>
+        </cTool>
+        <ccTool>
+          <developmentMode>5</developmentMode>
+        </ccTool>
+        <fortranCompilerTool>
+          <developmentMode>5</developmentMode>
+        </fortranCompilerTool>
+        <asmTool>
+          <developmentMode>5</developmentMode>
+        </asmTool>
+      </compileType>
+      <item path="main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="rbutton.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="rbutton.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="rbuttongroup.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="rbuttongroup.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="rdtool.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="rdtool.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="rpane.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="rpane.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="rprefs.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="rprefs.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="rprefsdialog.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="rprefsdialog.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="version.h" ex="false" tool="3" flavor2="0">
+      </item>
+    </conf>
+  </confs>
+</configurationDescriptor>
