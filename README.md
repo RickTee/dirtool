@@ -7,7 +7,7 @@ Plan: Make this as configurable as possible. ATM buttons are in a QList though t
 temporaraly fixed by a #define. Hoping at some point to find a way to make that more dymanic
 so the user can add or remove buttons.
 
-Button function on LNM and MMB atm, RMB will be for a popup menu. Buttons have styles which user
+Button function on LMB and MMB atm, RMB will be for a popup menu. Buttons have styles which user
 can set in the prefs when its built. Window panes do nothing atm other then show home dir.
 
 Looking for some input on this.
