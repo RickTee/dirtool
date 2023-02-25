@@ -1,14 +1,10 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/* 
- * File:   rtreeview.h
- * Author: rick
- *
+ * File: rpane.h
+ * Program: DirTool
+ * Author: Richard G Townsend
+ * Email: ricktee@virginmedia.com
  * Created on 19 February 2023, 12:45
+ * GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007
  */
 
 #ifndef RPANE_H

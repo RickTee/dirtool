@@ -1,10 +1,9 @@
 /*
  * File: version.h
- * Program: RdTool
+ * Program: DirTool
  * Author: Richard G Townsend
  * Email: ricktee@virginmedia.com
  * Created on: 22 February 2023, 07:24
- * Copyright (C) 2023 - 2030  Richard G Townsend
  * GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007
  */
 
@@ -13,7 +12,7 @@
 
 #define SPC         " "
 #define RELEASE     "0.0"
-#define REVISION    ".1"
+#define REVISION    ".2"
 #define UPDATE      "22 Feb 2023"
 #define DATE        "(Feb 2023)"
 #define YEAR        "2023 - 2030"

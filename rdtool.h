@@ -1,10 +1,9 @@
 /*
  * File: rdtool.h
- * Program: RdTool
+ * Program: DirTool
  * Author: Richard G Townsend
  * Email: ricktee@virginmedia.com
  * Created on: 22 February 2023, 07:24
- * Copyright (C) 2023 - 2030  Richard G Townsend
  * GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007
  */
 
