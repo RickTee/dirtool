@@ -8,6 +8,8 @@
  * GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007
  */
 
+#include <qt5/QtCore/qlist.h>
+
 #include "rprefs.h"
 
 using std::cout;
@@ -15,10 +17,14 @@ using std::endl;
 
 RPrefs::RPrefs() {
     fileName = new QString(HOME_PATH);
-    fileName->append(FILE_PATH);
     fileName->append(FILE_NAME);
     
-    
+    //cout << "fileName " << fileName->toStdString() << endl;
+    //rButtonList = new QList<RButton*>();
+    // Create button list
+    numOfButtons = 36;
+    createButtons();
+    //rButtonList
     
     if (QFile(*fileName).exists()) {
         loadPrefs();
@@ -27,6 +33,24 @@ RPrefs::RPrefs() {
     }
 }
 RPrefs::~RPrefs() {
+}
+
+void RPrefs::createButtons(void) {
+    int i, j, k=0;
+    RButton *temp;
+    ButtonData data[36];
+
+    for(i = 0; i < 6; i++) {
+        for(j = 0; j < 6; j++) {
+            data[k].lmbName =  new QString(QString("T %1 ").arg(k));
+            data[k].mmbName =  new QString(QString("M %1 ").arg(k));
+            data[k].rmbName =  new QString(QString("B %1 ").arg(k));
+            temp = new RButton(&data[k]);
+            rButtonList.append(temp);
+            k++;
+        }
+    }
+    std::cout << "k " << k << std::endl;
 }
 
 void RPrefs::loadPrefs(void) {
@@ -77,20 +101,20 @@ void RPrefs::savePrefs(void) {
     settings.beginWriteArray("ButtonNames");
     for (i = 0; i < numOfButtons; i++) {
         settings.setArrayIndex(i);
-        settings.setValue("LmbName", this->lmbName[i]);
-        settings.setValue("LmbCommand", this->lmbCommand[i]);
-        settings.setValue("LmbArgs", this->lmbArgs[i]);
-        settings.setValue("LmbTxtColor", this->lmbTxtColor[i]);
-        settings.setValue("LmbTxtStyle", this->lmbTxtStyle[i]);
-        settings.setValue("LmbTxtDecoration", this->lmbTxtDecoration[i]);
-        settings.setValue("LmbBkColor;", this->lmbBkColor[i]);
-        settings.setValue("MmbName", this->mmbName[i]);
-        settings.setValue("MmbCommand", this->mmbCommand[i]);
-        settings.setValue("MmbArgs", this->mmbArgs[i]);
-        settings.setValue("MmbTxtColor", this->mmbTxtColor[i]);
-        settings.setValue("MmbTxtStyle", this->mmbTxtStyle[i]);
-        settings.setValue("MmbTxtDecoration", this->mmbTxtDecoration[i]);
-        settings.setValue("MmbBkColor;", this->mmbBkColor[i]);
+//        settings.setValue("LmbName", this->rButtonList->at(i)->);
+//        settings.setValue("LmbCommand", this->lmbCommand[i]);
+//        settings.setValue("LmbArgs", this->lmbArgs[i]);
+//        settings.setValue("LmbTxtColor", this->lmbTxtColor[i]);
+//        settings.setValue("LmbTxtStyle", this->lmbTxtStyle[i]);
+//        settings.setValue("LmbTxtDecoration", this->lmbTxtDecoration[i]);
+//        settings.setValue("LmbBkColor;", this->lmbBkColor[i]);
+//        settings.setValue("MmbName", this->mmbName[i]);
+//        settings.setValue("MmbCommand", this->mmbCommand[i]);
+//        settings.setValue("MmbArgs", this->mmbArgs[i]);
+//        settings.setValue("MmbTxtColor", this->mmbTxtColor[i]);
+//        settings.setValue("MmbTxtStyle", this->mmbTxtStyle[i]);
+//        settings.setValue("MmbTxtDecoration", this->mmbTxtDecoration[i]);
+//        settings.setValue("MmbBkColor;", this->mmbBkColor[i]);
     }
     settings.endArray();
     settings.endGroup();

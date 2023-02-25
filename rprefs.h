@@ -13,17 +13,15 @@
 
 #include <iostream>
 #include <fstream>
-#include <string>
 #include <QString>
 #include <QSettings>
 #include <QVariant>
 #include <QFile>
 #include <QPushButton>
 #include <QList>
-#include "rbuttongroup.h"
+#include "rbutton.h"
 
-#define FILE_NAME   "rdtool.cfg"
-#define FILE_PATH   "/.config/QtDirTool/"
+#define FILE_NAME   "/.rdtool.cfg"
 
 #ifdef  __linux__
 #define HOME_PATH   qgetenv("HOME")
@@ -41,25 +39,13 @@ private:
     void savePrefs(void);
     void loadPrefs(void);
     void setDefaultPrefs(void);
+    void createButtons(void);
     QString *fileName;
+public:
     int numOfButtons;
-    QString *lmbName;
-    QString *lmbCommand;
-    QString *lmbArgs;
-    QString *lmbTxtColor;
-    QString *lmbTxtStyle;
-    QString *lmbTxtDecoration;
-    QString *lmbBkColor;
-    QString *mmbName;
-    QString *mmbCommand;
-    QString *mmbArgs;
-    QString *mmbTxtColor;
-    QString *mmbTxtStyle;
-    QString *mmbTxtDecoration;
-    QString *mmbBkColor;
-    QList<QString> rlist;
+    QList<RButton*> rButtonList;
+    RButton *aButtonlist[36];
     //QMenu *rmbMenu;
-    RButtonGroup *buttonGrp;
 };
 
 #endif /* RPREFS_H */

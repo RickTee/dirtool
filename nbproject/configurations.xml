@@ -5,7 +5,6 @@
                    displayName="Header Files"
                    projectFiles="true">
       <itemPath>rbutton.h</itemPath>
-      <itemPath>rbuttongroup.h</itemPath>
       <itemPath>rdtool.h</itemPath>
       <itemPath>rpane.h</itemPath>
       <itemPath>rprefs.h</itemPath>
@@ -21,7 +20,6 @@
                    projectFiles="true">
       <itemPath>main.cpp</itemPath>
       <itemPath>rbutton.cpp</itemPath>
-      <itemPath>rbuttongroup.cpp</itemPath>
       <itemPath>rdtool.cpp</itemPath>
       <itemPath>rpane.cpp</itemPath>
       <itemPath>rprefs.cpp</itemPath>
@@ -57,10 +55,6 @@
       <item path="rbutton.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="rbutton.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="rbuttongroup.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="rbuttongroup.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="rdtool.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -110,10 +104,6 @@
       <item path="rbutton.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="rbutton.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="rbuttongroup.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="rbuttongroup.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="rdtool.cpp" ex="false" tool="1" flavor2="0">
       </item>

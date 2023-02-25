@@ -15,6 +15,7 @@ RdTool::RdTool(QWidget *parent) : QWidget(parent) {
     prefs = new RPrefs();
     vbox = new QVBoxLayout();
     hbox = new QHBoxLayout();
+    gbox = new QGridLayout();
     makeMenu();
     // The left and right panes
     vbox->addWidget(menuBar);
@@ -24,14 +25,26 @@ RdTool::RdTool(QWidget *parent) : QWidget(parent) {
     hbox->addWidget(leftPane);
     hbox->addWidget(rightPane);
     // The button group loaded from prefs
-    buttonGrp = new RButtonGroup();
-    vbox->addWidget(buttonGrp);
+    createButtonLayout();
+    vbox->addLayout(gbox);
     this->setLayout(vbox);
     
     
     connect(quitAction, SIGNAL(triggered()), SLOT(close()));
 }
 RdTool::~RdTool() {
+}
+
+void RdTool::createButtonLayout(void) {
+    int i, j, k=0;
+
+    for(i = 0; i < 6; i++) {
+        for(j = 0; j < 6; j++) {
+            gbox->addWidget(prefs->rButtonList.at(k), i, j);
+            k++;
+        }
+    }
+    std::cout << "k " << k << std::endl;
 }
 
 // Create a menu bar and add a File menu and Help menu'

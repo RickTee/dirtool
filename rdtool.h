@@ -15,13 +15,13 @@
 #include <QWidget>
 #include <QCloseEvent>
 #include <QBoxLayout>
+#include <QGridLayout>
 #include <QPushButton>
 #include <QMenuBar>
 #include <QMenu>
 #include <QLabel>
 #include <QDialog>
 #include "rpane.h"
-#include "rbuttongroup.h"
 #include "rprefsdialog.h"
 #include "rprefs.h"
 
@@ -35,9 +35,11 @@ public:
 private:
     void closeEvent(QCloseEvent *event);
     void makeMenu(void);
+    void createButtonLayout(void);
 
     QVBoxLayout *vbox;
     QHBoxLayout *hbox;
+    QGridLayout *gbox;
     QMenuBar *menuBar;
     QMenu *fileMenu;
     QMenu *helpMenu;
@@ -48,7 +50,6 @@ private:
     QAction *prefsAction;
     RPane *leftPane;
     RPane *rightPane;
-    RButtonGroup *buttonGrp;
     RPrefs *prefs;
     RPrefsDialog *prefdialog;
 
