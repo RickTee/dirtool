@@ -30,6 +30,8 @@
 #define HOME_PATH   g_getenv("APPDATA")
 #endif
 
+#define NUM_OF_BUTTONS 64
+
 class RPrefs {
 public:
     RPrefs();

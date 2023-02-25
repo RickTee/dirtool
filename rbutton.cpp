@@ -44,7 +44,7 @@ void RButton::configButton(void) {
     setStyleSheet(style[lmb]);
     setText(*lmbName);
     
-    std::cout << "style" << style[0].toStdString() << std::endl;
+    //std::cout << "style" << style[0].toStdString() << std::endl;
 }
 
 void RButton::mousePressEvent(QMouseEvent *event) {

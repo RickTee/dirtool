@@ -16,6 +16,7 @@ RdTool::RdTool(QWidget *parent) : QWidget(parent) {
     vbox = new QVBoxLayout();
     hbox = new QHBoxLayout();
     gbox = new QGridLayout();
+    gbox->setSpacing(0);
     makeMenu();
     // The left and right panes
     vbox->addWidget(menuBar);
@@ -37,8 +38,8 @@ RdTool::~RdTool() {
 void RdTool::createButtonLayout(void) {
     int i, j, k=0;
 
-    for(i = 0; i < 6; i++) {
-        for(j = 0; j < 6; j++) {
+    for(i = 0; i < sqrt(NUM_OF_BUTTONS); i++) {
+        for(j = 0; j < sqrt(NUM_OF_BUTTONS); j++) {
             gbox->addWidget(prefs->rButtonList.at(k), i, j);
             k++;
         }

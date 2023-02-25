@@ -19,7 +19,6 @@ RPrefs::RPrefs() {
     fileName->append(FILE_NAME);
 
     // Create button list
-    numOfButtons = 36;
     createButtons();
 
     loadPrefs();
@@ -30,7 +29,7 @@ void RPrefs::createButtons(void) {
     int i;
     RButton *temp;
 
-    for (i = 0; i < 36; i++) {
+    for (i = 0; i < NUM_OF_BUTTONS; i++) {
         temp = new RButton();
         rButtonList.append(temp);
         temp = NULL;
@@ -38,12 +37,12 @@ void RPrefs::createButtons(void) {
 }
 void RPrefs::loadPrefs(void) {
     int i;
-
+    int size;
     if (QFile(*this->fileName).exists()) {
         QSettings settings(*this->fileName, QSettings::NativeFormat);
         settings.beginGroup("Buttons");
-        this->numOfButtons = settings.beginReadArray("ButtonData");
-        for (i = 0; i < numOfButtons; i++) {
+        size = settings.beginReadArray("ButtonData");
+        for (i = 0; i < size; i++) {
             settings.setArrayIndex(i);
             rButtonList.at(i)->lmbName = new QString(settings.value("LmbName").toString());
             // Set the main button (lmb) text
@@ -99,23 +98,12 @@ void RPrefs::savePrefs(void) {
     }
     settings.endArray();
     settings.endGroup();
-
-
-    //    settings.beginGroup("HighScoreNames");
-    //    settings.beginWriteArray("HighScores");
-    //    for (i = 0; i < numOfHighscores; i++) {
-    //        settings.setArrayIndex(i);
-    //        settings.setValue("Name", *this->highScoreNames[i]);
-    //        settings.setValue("Score", this->highScoreScores[i]);
-    //    }
-    //    settings.endArray();
-    //    settings.endGroup();
 }
 void RPrefs::setDefaultPrefs(void) {
     int i;
 
-    for (i = 0; i < numOfButtons; i++) {
-        if(i != 35) {
+    for (i = 0; i < NUM_OF_BUTTONS; i++) {
+        if(i != NUM_OF_BUTTONS - 1) {
         rButtonList.at(i)->lmbName = new QString(QString("T %1 ").arg(i));
         rButtonList.at(i)->lmbCommand = new QString(QString());
         rButtonList.at(i)->lmbArgs = new QString(QString());
@@ -142,7 +130,8 @@ void RPrefs::setDefaultPrefs(void) {
         rButtonList.at(i)->mmbTxtStyle = new QString(QString("normal"));
         rButtonList.at(i)->mmbTxtDecoration = new QString(QString("normal"));
         rButtonList.at(i)->mmbBkColor = new QString(QString(" "));
-
+        
+        // Need to set the name for rmb press. Plan is to have a popup menu
         rButtonList.at(i)->rmbName = new QString(QString("B %1 ").arg(i));
         //            data[i].rmbCommand =  new QString(QString());
         //            data[i].rmbArgs =  new QString(QString());
@@ -153,5 +142,4 @@ void RPrefs::setDefaultPrefs(void) {
         // Set the main button (lmb) text
         rButtonList.at(i)->configButton();
     }
-    
 }

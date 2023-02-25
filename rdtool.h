@@ -12,6 +12,7 @@
 #define RDTOOL_H
 
 #include <iostream>
+#include <cmath>
 #include <QWidget>
 #include <QCloseEvent>
 #include <QBoxLayout>
