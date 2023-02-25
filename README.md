@@ -4,7 +4,7 @@ Programmed in C++ using the Qt libs.
 Copy of Directory Opus which was avalable on the Amiga.
 
 Plan: Make this as configurable as possible. ATM buttons are in a QList though the number is
-temporaraly fixed by a #define. Hoping at some point to find a way to make that more dymanic
+temporarily fixed by a #define. Hoping at some point to find a way to make that more dymanic
 so the user can add or remove buttons.
 
 Button function on LMB and MMB atm, RMB will be for a popup menu. Buttons have styles which user
