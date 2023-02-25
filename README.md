@@ -1,7 +1,7 @@
 # DirTool
 Programmed in C++ using the Qt libs on Redhat 7.9. Run on Windows at your own risk/extreme frustration. :D
 
-Copy of Directory Opus which was avalable on the Amiga.
+Copy of Directory Opus which was available on the Amiga.
 
 Plan: Make this as configurable as possible. ATM buttons are in a QList though the number is
 temporarily fixed by a #define. Hoping at some point to find a way to make that more dymanic
