@@ -44,7 +44,6 @@ private:
 public:
     int numOfButtons;
     QList<RButton*> rButtonList;
-    RButton *aButtonlist[36];
     //QMenu *rmbMenu;
 };
 

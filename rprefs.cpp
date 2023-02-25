@@ -18,125 +18,88 @@ RPrefs::RPrefs() {
     fileName = new QString(HOME_PATH);
     fileName->append(FILE_NAME);
 
-    //cout << "fileName " << fileName->toStdString() << endl;
-    //rButtonList = new QList<RButton*>();
     // Create button list
     numOfButtons = 36;
     createButtons();
-    //rButtonList
 
-    if (QFile(*fileName).exists()) {
-        loadPrefs();
-    } else {
-        setDefaultPrefs();
-        savePrefs();
-    }
+    loadPrefs();
 }
 RPrefs::~RPrefs() {
 }
 void RPrefs::createButtons(void) {
     int i;
     RButton *temp;
-    ButtonData data[36];
 
     for (i = 0; i < 36; i++) {
         temp = new RButton();
-        temp->lmbName = new QString(QString("T %1 ").arg(i));
-        temp->lmbCommand = new QString(QString());
-        temp->lmbArgs = new QString(QString());
-        temp->lmbTxtColor = new QString(QString("black"));
-        temp->lmbTxtStyle = new QString(QString("normal"));
-        temp->lmbTxtDecoration = new QString(QString("normal"));
-        temp->lmbBkColor = new QString(QString("transparent"));
-
-        temp->mmbName = new QString(QString("M %1 ").arg(i));
-        temp->mmbCommand = new QString(QString());
-        temp->mmbArgs = new QString(QString());
-        temp->mmbTxtColor = new QString(QString("black"));
-        temp->mmbTxtStyle = new QString(QString("normal"));
-        temp->mmbTxtDecoration = new QString(QString("normal"));
-        temp->mmbBkColor = new QString(QString("transparent"));
-
-        temp->rmbName =  new QString(QString("B %1 ").arg(i));
-        //            data[i].rmbCommand =  new QString(QString());
-        //            data[i].rmbArgs =  new QString(QString());
-        //            data[i].rmbTxtColor =  new QString(QString("black"));
-        //            data[i].rmbTxtStyle =  new QString(QString("normal"));
-        //            data[i].rmbTxtDecoration =  new QString(QString("normal"));
-        //            data[i].rmbBkColor =  new QString(QString("transparent"));
-        
         rButtonList.append(temp);
         temp = NULL;
     }
 }
 void RPrefs::loadPrefs(void) {
-    //    int i;
-    //
-    //    if (QFile(*this->fileName).exists()) {
-    //        QSettings settings(*this->fileName, QSettings::NativeFormat);
-    //        settings.beginGroup("Game");
-    //        this->gameType = settings.value("type", "").toInt();
-    //        settings.endGroup();
-    //
-    //        settings.beginGroup("PlayerNames");
-    //        this->numOfPlayers = settings.beginReadArray("Players");
-    //        for (i = 0; i < this->numOfPlayers; i++) {
-    //            settings.setArrayIndex(i);
-    //            // if this player name already exists delete the QString
-    //            if(this->playerNames[i] != NULL) 
-    //            {
-    //                delete this->playerNames[i];
-    //                this->playerNames[i] = NULL;
-    //            }
-    //            this->playerNames[i] = new QString(settings.value("Name").toString());
-    //        }
-    //        settings.endArray();
-    //        settings.endGroup();
-    //        
-    //        settings.beginGroup("HighScoreNames");
-    //        settings.beginReadArray("HighScores");
-    //        for (i = 0; i < this->numOfHighscores; i++) {
-    //            settings.setArrayIndex(i);
-    //            this->highScoreNames[i] = new QString(settings.value("Name").toString());
-    //            this->highScoreScores[i] = settings.value("Score").toInt();
-    //        }
-    //        settings.endArray();
-    //        settings.endGroup();
-    //    
-    //    } else {
-    // Set defaults and save
-    //        this->playerNames[0] = new QString("Player 1");
-    //        savePrefs();
-    //    }
+    int i;
+
+    if (QFile(*this->fileName).exists()) {
+        QSettings settings(*this->fileName, QSettings::NativeFormat);
+        settings.beginGroup("Buttons");
+        this->numOfButtons = settings.beginReadArray("ButtonData");
+        for (i = 0; i < numOfButtons; i++) {
+            settings.setArrayIndex(i);
+            rButtonList.at(i)->lmbName = new QString(settings.value("LmbName").toString());
+            // Set the main button (lmb) text
+            rButtonList.at(i)->setText(*rButtonList.at(i)->lmbName);
+            rButtonList.at(i)->lmbCommand = new QString(settings.value("LmbCommand").toString());
+            rButtonList.at(i)->lmbArgs = new QString(settings.value("LmbArgs").toString());
+            rButtonList.at(i)->lmbTxtColor = new QString(settings.value("LmbTxtColor").toString());
+            rButtonList.at(i)->lmbTxtStyle = new QString(settings.value("LmbTxtStyle").toString());
+            rButtonList.at(i)->lmbTxtDecoration = new QString(settings.value("LmbTxtDecoration").toString());
+            rButtonList.at(i)->lmbBkColor = new QString(settings.value("LmbBkColor").toString());
+
+            rButtonList.at(i)->mmbName = new QString(settings.value("MmbName").toString());
+            rButtonList.at(i)->mmbCommand = new QString(settings.value("MmbCommand").toString());
+            rButtonList.at(i)->mmbArgs = new QString(settings.value("MmbArgs").toString());
+            rButtonList.at(i)->mmbTxtColor = new QString(settings.value("MmbTxtColor").toString());
+            rButtonList.at(i)->mmbTxtStyle = new QString(settings.value("MmbTxtStyle").toString());
+            rButtonList.at(i)->mmbTxtDecoration = new QString(settings.value("MmbTxtDecoration").toString());
+            rButtonList.at(i)->mmbBkColor = new QString(settings.value("MmbBkColor").toString());
+
+            rButtonList.at(i)->rmbName = new QString(settings.value("RmbName").toString());
+            rButtonList.at(i)->configButton();
+        }
+        settings.endArray();
+        settings.endGroup();
+    } else {
+        // Set defaults and save
+        setDefaultPrefs();
+        savePrefs();
+    }
 }
 void RPrefs::savePrefs(void) {
     int i;
     QSettings settings(*this->fileName, QSettings::NativeFormat);
     settings.beginGroup("Buttons");
-    settings.beginWriteArray("ButtonNames");
+    settings.beginWriteArray("ButtonData");
     for (i = 0; i < rButtonList.count(); i++) {
         settings.setArrayIndex(i);
-//        settings.setValue("LmbName", *rButtonList.at(i)->bdata->lmbName);
-//        settings.setValue("LmbCommand", *rButtonList.at(i)->bdata->lmbCommand);
-//        settings.setValue("LmbArgs", *rButtonList.at(i)->bdata->lmbArgs);
-//        settings.setValue("LmbTxtColor", *rButtonList.at(i)->bdata->lmbTxtColor);
-//        settings.setValue("LmbTxtStyle", *rButtonList.at(i)->bdata->lmbTxtStyle);
-//        settings.setValue("LmbTxtDecoration", *rButtonList.at(i)->bdata->lmbTxtDecoration);
-//        settings.setValue("LmbBkColor;", *rButtonList.at(i)->bdata->lmbBkColor);
-//        settings.setValue("MmbName", *rButtonList.at(i)->bdata->mmbName);
-//        settings.setValue("MmbCommand", *rButtonList.at(i)->bdata->mmbCommand);
-//        settings.setValue("MmbArgs", *rButtonList.at(i)->bdata->mmbArgs);
-//        settings.setValue("MmbTxtColor", *rButtonList.at(i)->bdata->mmbTxtColor);
-//        settings.setValue("MmbTxtStyle", *rButtonList.at(i)->bdata->mmbTxtStyle);
-//        settings.setValue("MmbTxtDecoration", *rButtonList.at(i)->bdata->mmbTxtDecoration);
-//        settings.setValue("MmbBkColor;", *rButtonList.at(i)->bdata->mmbBkColor);        
+        settings.setValue("LmbName", *rButtonList.at(i)->lmbName);
+        settings.setValue("LmbCommand", *rButtonList.at(i)->lmbCommand);
+        settings.setValue("LmbArgs", *rButtonList.at(i)->lmbArgs);
+        settings.setValue("LmbTxtColor", *rButtonList.at(i)->lmbTxtColor);
+        settings.setValue("LmbTxtStyle", *rButtonList.at(i)->lmbTxtStyle);
+        settings.setValue("LmbTxtDecoration", *rButtonList.at(i)->lmbTxtDecoration);
+        settings.setValue("LmbBkColor", *rButtonList.at(i)->lmbBkColor);
+        settings.setValue("MmbName", *rButtonList.at(i)->mmbName);
+        settings.setValue("MmbCommand", *rButtonList.at(i)->mmbCommand);
+        settings.setValue("MmbArgs", *rButtonList.at(i)->mmbArgs);
+        settings.setValue("MmbTxtColor", *rButtonList.at(i)->mmbTxtColor);
+        settings.setValue("MmbTxtStyle", *rButtonList.at(i)->mmbTxtStyle);
+        settings.setValue("MmbTxtDecoration", *rButtonList.at(i)->mmbTxtDecoration);
+        settings.setValue("MmbBkColor", *rButtonList.at(i)->mmbBkColor);
+        settings.setValue("RmbName", *rButtonList.at(i)->rmbName);
     }
     settings.endArray();
     settings.endGroup();
 
-    std::cout << "rButtonList.count() " << rButtonList.count() << std::endl;
-    std::cout << "rButtonList.at(25)->lmbTxtDecoration " << rButtonList.at(25)->lmbTxtDecoration->toStdString() << std::endl;
-    
 
     //    settings.beginGroup("HighScoreNames");
     //    settings.beginWriteArray("HighScores");
@@ -150,8 +113,45 @@ void RPrefs::savePrefs(void) {
 }
 void RPrefs::setDefaultPrefs(void) {
     int i;
-    numOfButtons = 4;
-    for (i = 0; i < numOfButtons; i++) {
 
+    for (i = 0; i < numOfButtons; i++) {
+        if(i != 35) {
+        rButtonList.at(i)->lmbName = new QString(QString("T %1 ").arg(i));
+        rButtonList.at(i)->lmbCommand = new QString(QString());
+        rButtonList.at(i)->lmbArgs = new QString(QString());
+        rButtonList.at(i)->lmbTxtColor = new QString(QString("black"));
+        rButtonList.at(i)->lmbTxtStyle = new QString(QString("normal"));
+        rButtonList.at(i)->lmbTxtDecoration = new QString(QString("normal"));
+        rButtonList.at(i)->lmbBkColor = new QString(QString(" "));
+        } else {
+            rButtonList.at(i)->lmbName = new QString(QString("Delete"));
+            rButtonList.at(i)->lmbCommand = new QString(QString());
+            rButtonList.at(i)->lmbArgs = new QString(QString());
+            rButtonList.at(i)->lmbTxtColor = new QString(QString("white"));
+            rButtonList.at(i)->lmbTxtStyle = new QString(QString("bold"));
+            rButtonList.at(i)->lmbTxtDecoration = new QString(QString("normal"));
+            rButtonList.at(i)->lmbBkColor = new QString(QString("red"));
+            // Set the main button (lmb) text
+            rButtonList.at(i)->setText(*rButtonList.at(i)->lmbName);
+        }
+
+        rButtonList.at(i)->mmbName = new QString(QString("M %1 ").arg(i));
+        rButtonList.at(i)->mmbCommand = new QString(QString());
+        rButtonList.at(i)->mmbArgs = new QString(QString());
+        rButtonList.at(i)->mmbTxtColor = new QString(QString("black"));
+        rButtonList.at(i)->mmbTxtStyle = new QString(QString("normal"));
+        rButtonList.at(i)->mmbTxtDecoration = new QString(QString("normal"));
+        rButtonList.at(i)->mmbBkColor = new QString(QString(" "));
+
+        rButtonList.at(i)->rmbName = new QString(QString("B %1 ").arg(i));
+        //            data[i].rmbCommand =  new QString(QString());
+        //            data[i].rmbArgs =  new QString(QString());
+        //            data[i].rmbTxtColor =  new QString(QString("black"));
+        //            data[i].rmbTxtStyle =  new QString(QString("normal"));
+        //            data[i].rmbTxtDecoration =  new QString(QString("normal"));
+        //            data[i].rmbBkColor =  new QString(QString("transparent"));
+        // Set the main button (lmb) text
+        rButtonList.at(i)->configButton();
     }
+    
 }

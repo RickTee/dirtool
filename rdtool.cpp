@@ -29,7 +29,6 @@ RdTool::RdTool(QWidget *parent) : QWidget(parent) {
     vbox->addLayout(gbox);
     this->setLayout(vbox);
     
-    
     connect(quitAction, SIGNAL(triggered()), SLOT(close()));
 }
 RdTool::~RdTool() {
@@ -44,7 +43,6 @@ void RdTool::createButtonLayout(void) {
             k++;
         }
     }
-    std::cout << "k " << k << std::endl;
 }
 
 // Create a menu bar and add a File menu and Help menu'

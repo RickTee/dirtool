@@ -20,42 +20,13 @@
 #include <QMouseEvent>
 #include <QAction>
 
-typedef struct _ButtonData ButtonData;
-
-struct _ButtonData {
-    QString *lmbName;
-    QString *lmbCommand;
-    QString *lmbArgs;
-    QString *lmbTxtColor;
-    QString *lmbTxtStyle;
-    QString *lmbTxtDecoration;
-    QString *lmbBkColor;
-    
-    QString *mmbName;
-    QString *mmbCommand;
-    QString *mmbArgs;
-    QString *mmbTxtColor;
-    QString *mmbTxtStyle;
-    QString *mmbTxtDecoration;
-    QString *mmbBkColor;
-    
-    QString *rmbName;
-    QString *rmbCommand;
-    QString *rmbArgs;
-    QString *rmbTxtColor;
-    QString *rmbTxtStyle;
-    QString *rmbTxtDecoration;
-    QString *rmbBkColor;
-};
-
 class RButton : public QPushButton {
     Q_OBJECT
 public:
-    RButton(ButtonData *data, QWidget *parent = 0);
     RButton(QWidget *parent = 0);
     RButton(const RButton& orig);
     virtual ~RButton();
-    
+    void configButton(void);
 private:
     void mousePressEvent(QMouseEvent *event);
     void mouseReleaseEvent(QMouseEvent *event);
@@ -63,6 +34,10 @@ private:
     QHBoxLayout *hbox;
     QAction *mouseAction;
     QProcess process;
+    QString style[3];
+    int lmb = 0;
+    int mmb = 1;
+    int rmb = 2;
 public:
     QString *lmbName;
     QString *lmbCommand;

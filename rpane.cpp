@@ -19,7 +19,7 @@ RPane::RPane(QWidget *parent) : QWidget(parent) {
     vbox->addWidget(rlineedit);
     this->setLayout(vbox);
     
-    rmodel = new QFileSystemModel;
+    rmodel = new QFileSystemModel();
     // Default to / (root)
     rmodel->setRootPath(QDir::currentPath());
     rtreeview->setModel(rmodel);

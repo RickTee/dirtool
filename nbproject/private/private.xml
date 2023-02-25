@@ -8,9 +8,13 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/home/rick/Projects/QtDirTool/rdtool.cpp</file>
+            <file>file:/home/rick/Projects/QtDirTool/rprefsdialog.h</file>
+            <file>file:/home/rick/Projects/QtDirTool/rprefsdialog.cpp</file>
             <file>file:/home/rick/Projects/QtDirTool/rprefs.h</file>
+            <file>file:/home/rick/Projects/QtDirTool/rpane.cpp</file>
             <file>file:/home/rick/Projects/QtDirTool/rprefs.cpp</file>
             <file>file:/home/rick/Projects/QtDirTool/rbutton.h</file>
+            <file>file:/home/rick/Projects/QtDirTool/rpane.h</file>
             <file>file:/home/rick/Projects/QtDirTool/rbutton.cpp</file>
             <file>file:/home/rick/Projects/QtDirTool/rdtool.h</file>
         </group>
