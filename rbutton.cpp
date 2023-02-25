@@ -50,13 +50,13 @@ void RButton::configButton(void) {
 void RButton::mousePressEvent(QMouseEvent *event) {
     if (event->button() == Qt::LeftButton) {
         this->setDown(true);
-        process.start("touch", QStringList() << "/home/rick/tmp/knight.txt");
+        process.start("touch", QStringList() << (HOME_PATH + TMP_FILE));
     }
     if (event->button() == Qt::MiddleButton) {
         this->setDown(true);
         setText(*mmbName);
         setStyleSheet(style[mmb]);
-        process.start("rm", QStringList() << "/home/rick/tmp/knight.txt");
+        process.start("rm", QStringList() << (HOME_PATH + TMP_FILE));
     }
     if (event->button() == Qt::RightButton) {
         this->setDown(true);

@@ -9,19 +9,19 @@ CND_DISTDIR=dist
 # Debug configuration
 CND_PLATFORM_Debug=GNU-Linux
 CND_ARTIFACT_DIR_Debug=dist/Debug/GNU-Linux
-CND_ARTIFACT_NAME_Debug=QtDirTool
-CND_ARTIFACT_PATH_Debug=dist/Debug/GNU-Linux/QtDirTool
+CND_ARTIFACT_NAME_Debug=DirTool
+CND_ARTIFACT_PATH_Debug=dist/Debug/GNU-Linux/DirTool
 CND_PACKAGE_DIR_Debug=dist/Debug/GNU-Linux/package
-CND_PACKAGE_NAME_Debug=QtDirTool.tar
-CND_PACKAGE_PATH_Debug=dist/Debug/GNU-Linux/package/QtDirTool.tar
+CND_PACKAGE_NAME_Debug=DirTool.tar
+CND_PACKAGE_PATH_Debug=dist/Debug/GNU-Linux/package/DirTool.tar
 # Release configuration
 CND_PLATFORM_Release=GNU-Linux
 CND_ARTIFACT_DIR_Release=dist/Release/GNU-Linux
-CND_ARTIFACT_NAME_Release=QtDirTool
-CND_ARTIFACT_PATH_Release=dist/Release/GNU-Linux/QtDirTool
+CND_ARTIFACT_NAME_Release=DirTool
+CND_ARTIFACT_PATH_Release=dist/Release/GNU-Linux/DirTool
 CND_PACKAGE_DIR_Release=dist/Release/GNU-Linux/package
-CND_PACKAGE_NAME_Release=QtDirTool.tar
-CND_PACKAGE_PATH_Release=dist/Release/GNU-Linux/package/QtDirTool.tar
+CND_PACKAGE_NAME_Release=DirTool.tar
+CND_PACKAGE_PATH_Release=dist/Release/GNU-Linux/package/DirTool.tar
 #
 # include compiler specific variables
 #

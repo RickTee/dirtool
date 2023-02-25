@@ -21,7 +21,7 @@
 #include <QList>
 #include "rbutton.h"
 
-#define FILE_NAME   "/.rdtool.cfg"
+#define FILE_NAME   "/.dtool.cfg"
 
 #ifdef  __linux__
 #define HOME_PATH   qgetenv("HOME")

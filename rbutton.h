@@ -20,6 +20,14 @@
 #include <QMouseEvent>
 #include <QAction>
 
+#ifdef  __linux__
+#define HOME_PATH   qgetenv("HOME")
+#endif
+#ifdef _WIN64  
+#define HOME_PATH   qgetenv("APPDATA")
+#endif
+#define TMP_FILE   "/knight.txt"
+
 class RButton : public QPushButton {
     Q_OBJECT
 public:
