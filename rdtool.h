@@ -56,6 +56,7 @@ private slots:
     void slotExit(void);
     void slotAboutDialog(void);
     void slotPrefs(void);
+    void slot_close_dialog(void);
 };
 
 #endif /* RDRTOOL_H */

@@ -18,6 +18,8 @@
 #include <QSettings>
 #include <QVariant>
 #include <QFile>
+#include <QPushButton>
+#include <QList>
 #include "rbuttongroup.h"
 
 #define FILE_NAME   "rdtool.cfg"
@@ -30,34 +32,34 @@
 #define HOME_PATH   g_getenv("APPDATA")
 #endif
 
-// Forward declarations
-typedef struct _PrefsData PrefsData;
-
-struct _PrefsData {
-    int numOfButtons;
-    QString *lmbCommand;
-    QString *lmbArgs;
-    QString *lmbtxtcolor;
-    QString *lmbtxtstyle;
-    QString *lmbtxtdecoration;
-    QString *mmbCommand;
-    QString *mmbArgs;
-    QString *mmbtxtcolor;
-    QString *mmbtxtstyle;
-    QString *mmbtxtdecoration;
-    QMenu *rmbMenu;
-    RButtonGroup *buttonGrp;
-};
-
 class RPrefs {
 public:
     RPrefs();
     virtual ~RPrefs();
-    PrefsData data;
+    
 private:
     void savePrefs(void);
     void loadPrefs(void);
+    void setDefaultPrefs(void);
     QString *fileName;
+    int numOfButtons;
+    QString *lmbName;
+    QString *lmbCommand;
+    QString *lmbArgs;
+    QString *lmbTxtColor;
+    QString *lmbTxtStyle;
+    QString *lmbTxtDecoration;
+    QString *lmbBkColor;
+    QString *mmbName;
+    QString *mmbCommand;
+    QString *mmbArgs;
+    QString *mmbTxtColor;
+    QString *mmbTxtStyle;
+    QString *mmbTxtDecoration;
+    QString *mmbBkColor;
+    QList<QString> rlist;
+    //QMenu *rmbMenu;
+    RButtonGroup *buttonGrp;
 };
 
 #endif /* RPREFS_H */

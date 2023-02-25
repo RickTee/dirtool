@@ -26,9 +26,9 @@ void RButtonGroup::createButtons(void) {
 
     for(i = 0; i < 6; i++) {
         for(j = 0; j < 6; j++) {
-            data[k].topName =  new QString(QString("T %1 ").arg(k));
-            data[k].middleName =  new QString(QString("M %1 ").arg(k));
-            data[k].bottomName =  new QString(QString("B %1 ").arg(k));
+            data[k].lmbName =  new QString(QString("T %1 ").arg(k));
+            data[k].mmbName =  new QString(QString("M %1 ").arg(k));
+            data[k].rmbName =  new QString(QString("B %1 ").arg(k));
             buttons[k] = new RButton(&data[k]);
             gbox->addWidget(buttons[k], i, j);
             k++;

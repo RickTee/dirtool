@@ -10,14 +10,14 @@
 
 #include "rprefsdialog.h"
 
-RPrefsDialog::RPrefsDialog(PrefsData *data, QWidget *parent) : QDialog(parent) {
+RPrefsDialog::RPrefsDialog(RPrefs *prefs, QWidget *parent) : QDialog(parent) {
     
     vbox = new QVBoxLayout();
     hbox = new QHBoxLayout;
     hbox_1 = new QHBoxLayout;
     dirPaneLabel = new QLabel("Window config:");
     buttonGroupLabel = new QLabel("Button config:");
-    data->buttonGrp = new RButtonGroup();
+    //data->buttonGrp = new RButtonGroup();
     ok = new QPushButton("Ok");
     save = new QPushButton("Save");
     cancel = new QPushButton("Cancel");
@@ -26,15 +26,14 @@ RPrefsDialog::RPrefsDialog(PrefsData *data, QWidget *parent) : QDialog(parent) {
     vbox->addLayout(hbox);
     // the button group
     vbox->addWidget(buttonGroupLabel);
-    vbox->addWidget(data->buttonGrp);
+    //vbox->addWidget(data->buttonGrp);
     vbox->addLayout(hbox_1);
     hbox_1->addWidget(ok);
     hbox_1->addWidget(save);
     hbox_1->addWidget(cancel);
     this->setLayout(vbox);
     
-    
-
+    connect(cancel, SIGNAL(clicked()), SLOT(slot_exit()));
 }
 
 //PrefsDialog::PrefsDialog(const PrefsDialog& orig) {
@@ -43,11 +42,11 @@ RPrefsDialog::~RPrefsDialog() {
 }
 
 void RPrefsDialog::slot_exit(void) {
-    emit exit(0);
+    emit sig_dialog_done();
 }
 
 // Override closeEvent to quit cleanly when user presses the X
-void RPrefsDialog::closeEvent(QCloseEvent *event) {
-    emit exit(0);
-    event->accept();
-}
+//void RPrefsDialog::closeEvent(QCloseEvent *event) {
+//    emit exit(0);
+//    event->accept();
+//}

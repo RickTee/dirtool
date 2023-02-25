@@ -18,6 +18,13 @@ RPrefs::RPrefs() {
     fileName->append(FILE_PATH);
     fileName->append(FILE_NAME);
     
+    
+    
+    if (QFile(*fileName).exists()) {
+        loadPrefs();
+    } else {
+        setDefaultPrefs();
+    }
 }
 RPrefs::~RPrefs() {
 }
@@ -70,18 +77,40 @@ void RPrefs::savePrefs(void) {
     settings.beginWriteArray("ButtonNames");
     for (i = 0; i < numOfButtons; i++) {
         settings.setArrayIndex(i);
-        settings.setValue("Name", *buttonNames[i]);
+        settings.setValue("LmbName", this->lmbName[i]);
+        settings.setValue("LmbCommand", this->lmbCommand[i]);
+        settings.setValue("LmbArgs", this->lmbArgs[i]);
+        settings.setValue("LmbTxtColor", this->lmbTxtColor[i]);
+        settings.setValue("LmbTxtStyle", this->lmbTxtStyle[i]);
+        settings.setValue("LmbTxtDecoration", this->lmbTxtDecoration[i]);
+        settings.setValue("LmbBkColor;", this->lmbBkColor[i]);
+        settings.setValue("MmbName", this->mmbName[i]);
+        settings.setValue("MmbCommand", this->mmbCommand[i]);
+        settings.setValue("MmbArgs", this->mmbArgs[i]);
+        settings.setValue("MmbTxtColor", this->mmbTxtColor[i]);
+        settings.setValue("MmbTxtStyle", this->mmbTxtStyle[i]);
+        settings.setValue("MmbTxtDecoration", this->mmbTxtDecoration[i]);
+        settings.setValue("MmbBkColor;", this->mmbBkColor[i]);
     }
     settings.endArray();
     settings.endGroup();
     
-    settings.beginGroup("HighScoreNames");
-    settings.beginWriteArray("HighScores");
-    for (i = 0; i < this->numOfHighscores; i++) {
-        settings.setArrayIndex(i);
-        settings.setValue("Name", *this->highScoreNames[i]);
-        settings.setValue("Score", this->highScoreScores[i]);
+//    settings.beginGroup("HighScoreNames");
+//    settings.beginWriteArray("HighScores");
+//    for (i = 0; i < numOfHighscores; i++) {
+//        settings.setArrayIndex(i);
+//        settings.setValue("Name", *this->highScoreNames[i]);
+//        settings.setValue("Score", this->highScoreScores[i]);
+//    }
+//    settings.endArray();
+//    settings.endGroup();
+}
+
+
+void RPrefs::setDefaultPrefs(void) {
+    int i;
+    numOfButtons = 4;
+    for(i = 0; i < numOfButtons; i++) {
+        
     }
-    settings.endArray();
-    settings.endGroup();
 }

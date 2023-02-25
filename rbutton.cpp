@@ -10,17 +10,17 @@
 
 #include "rbutton.h"
 RButton::RButton(ButtonData *data, QWidget *parent) : QPushButton(parent) {
-    topName = data->topName;
-    middleName = data->middleName;
-    bottomName = data->bottomName;
+    lmbName = data->lmbName;
+    mmbName = data->mmbName;
+    rmbName = data->rmbName;
     lmbCommand = data->lmbCommand;
     lmbArgs = data->lmbArgs;
     mmbCommand = data->mmbCommand;
     mmbArgs = data->mmbArgs;
     rmbCommand = data->rmbCommand;
-    rmbargs = data->rmbargs;
+    rmbArgs = data->rmbArgs;
 
-    setText(*topName);
+    setText(*lmbName);
 
     connect(this, SIGNAL(clicked()), SLOT(slotPress()));
 }
@@ -30,15 +30,6 @@ RButton::RButton(ButtonData *data, QWidget *parent) : QPushButton(parent) {
 RButton::~RButton() {
 }
 
-//void MyCheckBox::mousePressEvent(QMouseEvent *event)
-//{
-//    if (event->button() == Qt::LeftButton) {
-//        // handle left mouse button here
-//    } else {
-//        // pass on other buttons to base class
-//        QCheckBox::mousePressEvent(event);
-//    }
-//}
 void RButton::mousePressEvent(QMouseEvent *event) {
     if (event->button() == Qt::LeftButton) {
         this->setDown(true);
@@ -46,19 +37,19 @@ void RButton::mousePressEvent(QMouseEvent *event) {
     }
     if (event->button() == Qt::MiddleButton) {
         this->setDown(true);
-        setText(*middleName);
+        setText(*mmbName);
         process.start("rm", QStringList() << "/home/rick/tmp/knight.txt");
     }
     if (event->button() == Qt::RightButton) {
         this->setDown(true);
-        setText(*bottomName);
+        setText(*rmbName);
     }
     // Pass event to base class
     //QPushButton::mousePressEvent(event);
 }
 void RButton::mouseReleaseEvent(QMouseEvent *event) {
     this->setDown(false);
-    setText(*topName);
+    setText(*lmbName);
     // Pass event to base class
     //QPushButton::mouseReleaseEvent(event);
 }

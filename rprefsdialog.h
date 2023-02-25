@@ -23,12 +23,12 @@
 class RPrefsDialog : public QDialog {
     Q_OBJECT
 public:
-    RPrefsDialog(PrefsData *data, QWidget *parent = 0);
+    RPrefsDialog(RPrefs *prefs, QWidget *parent = 0);
     RPrefsDialog(const RPrefsDialog& orig);
     virtual ~RPrefsDialog();
-    
+
 private:
-    void closeEvent(QCloseEvent *event);
+    //void closeEvent(QCloseEvent *event);
     QVBoxLayout *vbox;
     QHBoxLayout *hbox;
     QHBoxLayout *hbox_1;
@@ -41,7 +41,9 @@ private:
     QLabel *dirPaneLabel;
     QLabel *buttonGroupLabel;
 private slots:
-    void slot_exit(void);    
+    void slot_exit(void);
+signals:
+    void sig_dialog_done(void);
 };
 
 #endif /* RPREFSDIALOG_H */

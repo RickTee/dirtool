@@ -23,15 +23,27 @@
 typedef struct _ButtonData ButtonData;
 
 struct _ButtonData {
-    QString *topName;
-    QString *middleName;
-    QString *bottomName;
+    QString *lmbName;
     QString *lmbCommand;
     QString *lmbArgs;
+    QString *lmbTxtColor;
+    QString *lmbTxtStyle;
+    QString *lmbTxtDecoration;
+    QString *lmbBkColor;
+    QString *mmbName;
     QString *mmbCommand;
     QString *mmbArgs;
+    QString *mmbTxtColor;
+    QString *mmbTxtStyle;
+    QString *mmbTxtDecoration;
+    QString *mmbBkColor;
+    QString *rmbName;
     QString *rmbCommand;
-    QString *rmbargs;
+    QString *rmbArgs;
+    QString *rmbTxtColor;
+    QString *rmbTxtStyle;
+    QString *rmbTxtDecoration;
+    QString *rmbBkColor;
 };
 
 class RButton : public QPushButton {
@@ -48,15 +60,27 @@ private:
     QHBoxLayout *hbox;
     QAction *mouseAction;
     QProcess process;
-    QString *topName;
-    QString *middleName;
-    QString *bottomName;
+    QString *lmbName;
     QString *lmbCommand;
     QString *lmbArgs;
+    QString *lmbTxtColor;
+    QString *lmbTxtStyle;
+    QString *lmbTxtDecoration;
+    QString *lmbBkColor;
+    QString *mmbName;
     QString *mmbCommand;
     QString *mmbArgs;
+    QString *mmbTxtColor;
+    QString *mmbTxtStyle;
+    QString *mmbTxtDecoration;
+    QString *mmbBkColor;
+    QString *rmbName;
     QString *rmbCommand;
-    QString *rmbargs;
+    QString *rmbArgs;
+    QString *rmbTxtColor;
+    QString *rmbTxtStyle;
+    QString *rmbTxtDecoration;
+    QString *rmbBkColor;
     
 public slots:
     void slotPress(void);

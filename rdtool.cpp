@@ -24,7 +24,7 @@ RdTool::RdTool(QWidget *parent) : QWidget(parent) {
     hbox->addWidget(leftPane);
     hbox->addWidget(rightPane);
     // The button group loaded from prefs
-    buttonGrp = prefs->data.buttonGrp;
+    buttonGrp = new RButtonGroup();
     vbox->addWidget(buttonGrp);
     this->setLayout(vbox);
     
@@ -85,7 +85,11 @@ void RdTool::slotAboutDialog(void) {
 
 void RdTool::slotPrefs(void) {
     prefdialog = new RPrefsDialog(prefs);
+    connect(prefdialog, SIGNAL(sig_dialog_done()), this, SLOT(slot_close_dialog()));
     prefdialog->show();
+}
+void RdTool::slot_close_dialog(void) {
+    prefdialog->close();
 }
 
 void RdTool::slotExit(void) {
