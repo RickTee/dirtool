@@ -30,6 +30,7 @@ struct _ButtonData {
     QString *lmbTxtStyle;
     QString *lmbTxtDecoration;
     QString *lmbBkColor;
+    
     QString *mmbName;
     QString *mmbCommand;
     QString *mmbArgs;
@@ -37,6 +38,7 @@ struct _ButtonData {
     QString *mmbTxtStyle;
     QString *mmbTxtDecoration;
     QString *mmbBkColor;
+    
     QString *rmbName;
     QString *rmbCommand;
     QString *rmbArgs;
@@ -50,6 +52,7 @@ class RButton : public QPushButton {
     Q_OBJECT
 public:
     RButton(ButtonData *data, QWidget *parent = 0);
+    RButton(QWidget *parent = 0);
     RButton(const RButton& orig);
     virtual ~RButton();
     
@@ -60,6 +63,7 @@ private:
     QHBoxLayout *hbox;
     QAction *mouseAction;
     QProcess process;
+public:
     QString *lmbName;
     QString *lmbCommand;
     QString *lmbArgs;

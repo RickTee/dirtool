@@ -19,12 +19,18 @@ RButton::RButton(ButtonData *data, QWidget *parent) : QPushButton(parent) {
     mmbArgs = data->mmbArgs;
     rmbCommand = data->rmbCommand;
     rmbArgs = data->rmbArgs;
+    bdata = data;
 
     setText(*lmbName);
 
     connect(this, SIGNAL(clicked()), SLOT(slotPress()));
 }
 
+RButton::RButton(QWidget *parent) : QPushButton(parent) {
+    
+    //setText(*lmbName);
+    connect(this, SIGNAL(clicked()), SLOT(slotPress()));
+}
 //RButton::RButton(const RButton& orig) {
 //}
 RButton::~RButton() {
