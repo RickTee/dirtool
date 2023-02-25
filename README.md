@@ -1,5 +1,5 @@
 # DirTool
-Programmed in C++ using the Qt libs on Redhat 7.9. Run on Windows at your own risk/extreem frustration. :D
+Programmed in C++ using the Qt libs on Redhat 7.9. Run on Windows at your own risk/extreme frustration. :D
 
 Copy of Directory Opus which was avalable on the Amiga.
 
