@@ -13,7 +13,7 @@ can set in the prefs when its built. Window panes do nothing atm other then show
 Looking for some input on this.
 
 Atm it runs, shows the left and right panes and 64 buttons. Initially it will create a default
-config file in your home dir /home/<name>/.dtool.cfg in init format produced by QSettings. Running 
+config file in your home dir /home/<name>/.dtool.cfg in ini format produced by QSettings. Running 
 again it will load the config file to generate the buttons. Lef click on any button causes touch
 to create a file in your home dir called knight.txt, middle click any button removes that file.
 
