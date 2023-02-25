@@ -1,5 +1,5 @@
 # DirTool
-Programmed in C++ using the Qt libs.
+Programmed in C++ using the Qt libs on Redhat 7.9. Run on Windows at your own risk/extreem frustration. :D
 
 Copy of Directory Opus which was avalable on the Amiga.
 
@@ -17,4 +17,4 @@ config file in your home dir /home/<name>/.dtool.cfg in ini format produced by Q
 again it will load the config file to generate the buttons. Lef click on any button causes touch
 to create a file in your home dir called knight.txt, middle click any button removes that file.
 
-Name is not fixed in stone atm.
+Name is not fixed in stone.
