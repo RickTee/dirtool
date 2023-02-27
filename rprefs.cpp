@@ -7,12 +7,11 @@
  * GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007
  */
 
-#include <qt5/QtCore/qlist.h>
-
 #include "rprefs.h"
 
 using std::cout;
 using std::endl;
+
 RPrefs::RPrefs() {
     fileName = new QString(HOME_PATH);
     fileName->append(FILE_NAME);
@@ -22,8 +21,10 @@ RPrefs::RPrefs() {
 
     loadPrefs();
 }
+
 RPrefs::~RPrefs() {
 }
+
 void RPrefs::createButtons(void) {
     int i;
     RButton *temp;
@@ -34,6 +35,7 @@ void RPrefs::createButtons(void) {
         temp = NULL;
     }
 }
+
 void RPrefs::loadPrefs(void) {
     int i;
     int size;
@@ -62,6 +64,12 @@ void RPrefs::loadPrefs(void) {
             rButtonList.at(i)->mmbBkColor = new QString(settings.value("MmbBkColor").toString());
 
             rButtonList.at(i)->rmbName = new QString(settings.value("RmbName").toString());
+            rButtonList.at(i)->rmbCommand = new QString(settings.value("RmbCommand").toString());
+            rButtonList.at(i)->rmbArgs = new QString(settings.value("RmbArgs").toString());
+            rButtonList.at(i)->rmbTxtColor = new QString(settings.value("RmbTxtColor").toString());
+            rButtonList.at(i)->rmbTxtStyle = new QString(settings.value("RmbTxtStyle").toString());
+            rButtonList.at(i)->rmbTxtDecoration = new QString(settings.value("RmbTxtDecoration").toString());
+            rButtonList.at(i)->rmbBkColor = new QString(settings.value("RmbBkColor").toString());
             rButtonList.at(i)->configButton();
         }
         settings.endArray();
@@ -72,6 +80,7 @@ void RPrefs::loadPrefs(void) {
         savePrefs();
     }
 }
+
 void RPrefs::savePrefs(void) {
     int i;
     QSettings settings(*this->fileName, QSettings::NativeFormat);
@@ -94,51 +103,64 @@ void RPrefs::savePrefs(void) {
         settings.setValue("MmbTxtDecoration", *rButtonList.at(i)->mmbTxtDecoration);
         settings.setValue("MmbBkColor", *rButtonList.at(i)->mmbBkColor);
         settings.setValue("RmbName", *rButtonList.at(i)->rmbName);
+        settings.setValue("RmbCommand", *rButtonList.at(i)->rmbCommand);
+        settings.setValue("RmbArgs", *rButtonList.at(i)->rmbArgs);
+        settings.setValue("RmbTxtColor", *rButtonList.at(i)->rmbTxtColor);
+        settings.setValue("RmbTxtStyle", *rButtonList.at(i)->rmbTxtStyle);
+        settings.setValue("RmbTxtDecoration", *rButtonList.at(i)->rmbTxtDecoration);
+        settings.setValue("RmbBkColor", *rButtonList.at(i)->rmbBkColor);
     }
     settings.endArray();
     settings.endGroup();
 }
+
 void RPrefs::setDefaultPrefs(void) {
     int i;
 
     for (i = 0; i < NUM_OF_BUTTONS; i++) {
-        if(i != NUM_OF_BUTTONS - 1) {
-        rButtonList.at(i)->lmbName = new QString(QString("T %1 ").arg(i));
-        rButtonList.at(i)->lmbCommand = new QString(QString());
-        rButtonList.at(i)->lmbArgs = new QString(QString());
-        rButtonList.at(i)->lmbTxtColor = new QString(QString("black"));
-        rButtonList.at(i)->lmbTxtStyle = new QString(QString("normal"));
-        rButtonList.at(i)->lmbTxtDecoration = new QString(QString("normal"));
-        rButtonList.at(i)->lmbBkColor = new QString(QString(" "));
+        if (i == (NUM_OF_BUTTONS - 6)) {
+            rButtonList.at(i)->lmbName = new QString("Delete");
+            rButtonList.at(i)->lmbCommand = new QString();
+            rButtonList.at(i)->lmbArgs = new QString();
+            rButtonList.at(i)->lmbTxtColor = new QString("white");
+            rButtonList.at(i)->lmbTxtStyle = new QString("bold");
+            rButtonList.at(i)->lmbTxtDecoration = new QString("normal");
+            rButtonList.at(i)->lmbBkColor = new QString("red");
+        } else if ((i >= 30) && (i <= 35)) {
+            rButtonList.at(i)->lmbName = new QString(QString("T %1 ").arg(i));
+            rButtonList.at(i)->lmbCommand = new QString();
+            rButtonList.at(i)->lmbArgs = new QString();
+            rButtonList.at(i)->lmbTxtColor = new QString("black");
+            rButtonList.at(i)->lmbTxtStyle = new QString("normal");
+            rButtonList.at(i)->lmbTxtDecoration = new QString("normal");
+            rButtonList.at(i)->lmbBkColor = new QString("orange");
         } else {
-            rButtonList.at(i)->lmbName = new QString(QString("Delete"));
-            rButtonList.at(i)->lmbCommand = new QString(QString());
-            rButtonList.at(i)->lmbArgs = new QString(QString());
-            rButtonList.at(i)->lmbTxtColor = new QString(QString("white"));
-            rButtonList.at(i)->lmbTxtStyle = new QString(QString("bold"));
-            rButtonList.at(i)->lmbTxtDecoration = new QString(QString("normal"));
-            rButtonList.at(i)->lmbBkColor = new QString(QString("red"));
-            // Set the main button (lmb) text
-            rButtonList.at(i)->setText(*rButtonList.at(i)->lmbName);
+            rButtonList.at(i)->lmbName = new QString(QString("T %1 ").arg(i));
+            rButtonList.at(i)->lmbCommand = new QString();
+            rButtonList.at(i)->lmbArgs = new QString();
+            rButtonList.at(i)->lmbTxtColor = new QString("black");
+            rButtonList.at(i)->lmbTxtStyle = new QString("normal");
+            rButtonList.at(i)->lmbTxtDecoration = new QString("normal");
+            rButtonList.at(i)->lmbBkColor = new QString();
         }
 
         rButtonList.at(i)->mmbName = new QString(QString("M %1 ").arg(i));
-        rButtonList.at(i)->mmbCommand = new QString(QString());
-        rButtonList.at(i)->mmbArgs = new QString(QString());
-        rButtonList.at(i)->mmbTxtColor = new QString(QString("black"));
-        rButtonList.at(i)->mmbTxtStyle = new QString(QString("normal"));
-        rButtonList.at(i)->mmbTxtDecoration = new QString(QString("normal"));
-        rButtonList.at(i)->mmbBkColor = new QString(QString(" "));
-        
+        rButtonList.at(i)->mmbCommand = new QString();
+        rButtonList.at(i)->mmbArgs = new QString();
+        rButtonList.at(i)->mmbTxtColor = new QString("black");
+        rButtonList.at(i)->mmbTxtStyle = new QString("normal");
+        rButtonList.at(i)->mmbTxtDecoration = new QString("normal");
+        rButtonList.at(i)->mmbBkColor = new QString();
+
         // Need to set the name for rmb press. Plan is to have a popup menu
         rButtonList.at(i)->rmbName = new QString(QString("B %1 ").arg(i));
-        //            data[i].rmbCommand =  new QString(QString());
-        //            data[i].rmbArgs =  new QString(QString());
-        //            data[i].rmbTxtColor =  new QString(QString("black"));
-        //            data[i].rmbTxtStyle =  new QString(QString("normal"));
-        //            data[i].rmbTxtDecoration =  new QString(QString("normal"));
-        //            data[i].rmbBkColor =  new QString(QString("transparent"));
-        // Set the main button (lmb) text
+        rButtonList.at(i)->rmbCommand = new QString();
+        rButtonList.at(i)->rmbArgs = new QString();
+        rButtonList.at(i)->rmbTxtColor = new QString("black");
+        rButtonList.at(i)->rmbTxtStyle = new QString("normal");
+        rButtonList.at(i)->rmbTxtDecoration = new QString("normal");
+        rButtonList.at(i)->rmbBkColor = new QString();
+        // Set the main button(lmb) text
         rButtonList.at(i)->configButton();
     }
 }

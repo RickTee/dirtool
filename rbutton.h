@@ -67,7 +67,7 @@ public:
     QString *rmbTxtStyle;
     QString *rmbTxtDecoration;
     QString *rmbBkColor;
-    
+
 public slots:
     void slotPress(void);
 };

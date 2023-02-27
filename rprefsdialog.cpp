@@ -10,7 +10,7 @@
 #include "rprefsdialog.h"
 
 RPrefsDialog::RPrefsDialog(RPrefs *prefs, QWidget *parent) : QDialog(parent) {
-    
+
     vbox = new QVBoxLayout();
     hbox = new QHBoxLayout;
     hbox_1 = new QHBoxLayout;
@@ -20,7 +20,7 @@ RPrefsDialog::RPrefsDialog(RPrefs *prefs, QWidget *parent) : QDialog(parent) {
     ok = new QPushButton("Ok");
     save = new QPushButton("Save");
     cancel = new QPushButton("Cancel");
-    
+
     hbox->addWidget(dirPaneLabel);
     vbox->addLayout(hbox);
     // the button group
@@ -31,12 +31,13 @@ RPrefsDialog::RPrefsDialog(RPrefs *prefs, QWidget *parent) : QDialog(parent) {
     hbox_1->addWidget(save);
     hbox_1->addWidget(cancel);
     this->setLayout(vbox);
-    
+
     connect(cancel, SIGNAL(clicked()), SLOT(slot_exit()));
 }
 
 //PrefsDialog::PrefsDialog(const PrefsDialog& orig) {
 //}
+
 RPrefsDialog::~RPrefsDialog() {
 }
 

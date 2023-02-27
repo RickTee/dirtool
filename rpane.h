@@ -32,11 +32,11 @@ public:
     virtual ~RPane();
 private:
     QVBoxLayout *vbox;
-    QTreeView   *rtreeview;
+    QTreeView *rtreeview;
     QFileSystemModel *rmodel;
     QLineEdit *rlineedit;
     QLabel *rlabel;
-    
+
 private slots:
     void slot_run(void);
 };

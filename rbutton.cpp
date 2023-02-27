@@ -10,16 +10,17 @@
 #include "rbutton.h"
 
 RButton::RButton(QWidget *parent) : QPushButton(parent) {
-    
+
     connect(this, SIGNAL(clicked()), SLOT(slotPress()));
 }
 //RButton::RButton(const RButton& orig) {
 //}
+
 RButton::~RButton() {
 }
 
 void RButton::configButton(void) {
-    
+
     style[lmb] = "QPushButton { background-color: ";
     style[lmb].append(lmbBkColor);
     style[lmb].append("; color: ");
@@ -29,7 +30,7 @@ void RButton::configButton(void) {
     style[lmb].append("; text-decoration: ");
     style[lmb].append(lmbTxtDecoration);
     style[lmb].append("}");
-    
+
     style[mmb] = "QPushButton { background-color: ";
     style[mmb].append(mmbBkColor);
     style[mmb].append("; color: ");
@@ -39,10 +40,20 @@ void RButton::configButton(void) {
     style[mmb].append("; text-decoration: ");
     style[mmb].append(mmbTxtDecoration);
     style[mmb].append("}");
-    
+
+    style[rmb] = "QPushButton { background-color: ";
+    style[rmb].append(rmbBkColor);
+    style[rmb].append("; color: ");
+    style[rmb].append(rmbTxtColor);
+    style[rmb].append("; font: ");
+    style[rmb].append(rmbTxtStyle);
+    style[rmb].append("; text-decoration: ");
+    style[rmb].append(rmbTxtDecoration);
+    style[rmb].append("}");
+
     setStyleSheet(style[lmb]);
     setText(*lmbName);
-    
+
     //std::cout << "style" << style[0].toStdString() << std::endl;
 }
 
@@ -60,10 +71,12 @@ void RButton::mousePressEvent(QMouseEvent *event) {
     if (event->button() == Qt::RightButton) {
         this->setDown(true);
         setText(*rmbName);
+        setStyleSheet(style[rmb]);
     }
     // Pass event to base class
     //QPushButton::mousePressEvent(event);
 }
+
 void RButton::mouseReleaseEvent(QMouseEvent *event) {
     this->setDown(false);
     setStyleSheet(style[lmb]);

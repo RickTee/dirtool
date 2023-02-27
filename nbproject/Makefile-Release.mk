@@ -19,7 +19,7 @@ CCC=g++
 CXX=g++
 FC=gfortran
 AS=as
-QMAKE=qmake
+QMAKE=qmake-qt5
 
 # Macros
 CND_PLATFORM=GNU-Linux

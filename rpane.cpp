@@ -10,7 +10,7 @@
 #include "rpane.h"
 
 RPane::RPane(QWidget *parent) : QWidget(parent) {
-    
+
     vbox = new QVBoxLayout();
     rlabel = new QLabel();
     rlineedit = new QLineEdit();
@@ -20,7 +20,7 @@ RPane::RPane(QWidget *parent) : QWidget(parent) {
     vbox->addWidget(rtreeview);
     vbox->addWidget(rlineedit);
     this->setLayout(vbox);
-    
+
     rmodel = new QFileSystemModel();
     // Default to / (root)
     rmodel->setRootPath(QDir::currentPath());
@@ -32,9 +32,10 @@ RPane::RPane(QWidget *parent) : QWidget(parent) {
 }
 //RPane::RPane(const RPane& orig) {
 //}
+
 RPane::~RPane() {
 }
 
 void RPane::slot_run(void) {
-    
+
 }

@@ -29,13 +29,13 @@
 #define HOME_PATH   g_getenv("APPDATA")
 #endif
 
-#define NUM_OF_BUTTONS 64
+#define NUM_OF_BUTTONS 60
 
 class RPrefs {
 public:
     RPrefs();
     virtual ~RPrefs();
-    
+
 private:
     void savePrefs(void);
     void loadPrefs(void);
