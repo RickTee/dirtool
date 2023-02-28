@@ -30,6 +30,7 @@
 #endif
 
 #define NUM_OF_BUTTONS 60
+#define BUILT_IN_COMMS 20
 
 class RPrefs {
 public:
@@ -41,10 +42,15 @@ private:
     void loadPrefs(void);
     void setDefaultPrefs(void);
     void createButtons(void);
+    void createCommands(void);
     QString *fileName;
 public:
     int numOfButtons;
     QList<RButton*> rButtonList;
+    QList<QString*> rCommands;
+    QList<QString*> rArgs;
+    QString defaultComms[BUILT_IN_COMMS];
+    QString defaultArgs[BUILT_IN_COMMS];
     //QMenu *rmbMenu;
 };
 

@@ -18,6 +18,7 @@ RPrefs::RPrefs() {
 
     // Create button list
     createButtons();
+    createCommands();
 
     loadPrefs();
 }
@@ -25,6 +26,16 @@ RPrefs::RPrefs() {
 RPrefs::~RPrefs() {
 }
 
+// Create the command list
+void RPrefs::createCommands(void) {
+    int i;
+    for (i = 0; i < BUILT_IN_COMMS; i++) {
+        
+    }
+    
+}
+
+// Create the button list
 void RPrefs::createButtons(void) {
     int i;
     RButton *temp;

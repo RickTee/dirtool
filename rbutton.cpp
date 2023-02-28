@@ -29,7 +29,7 @@ void RButton::configButton(void) {
     style[lmb].append(lmbTxtStyle);
     style[lmb].append("; text-decoration: ");
     style[lmb].append(lmbTxtDecoration);
-    style[lmb].append("}");
+    style[lmb].append("} QPushButton:hover { color: orange }");
 
     style[mmb] = "QPushButton { background-color: ";
     style[mmb].append(mmbBkColor);
