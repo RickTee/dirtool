@@ -18,7 +18,7 @@ RPrefs::RPrefs() {
     // Create button list
     createButtons();
     //createCommands();
-
+    // Load prefs if they exist else create new file with defaults
     loadPrefs();
 }
 RPrefs::~RPrefs() {
@@ -68,7 +68,7 @@ void RPrefs::loadPrefs(void) {
             rButtonList.at(i)->rmbArgs = new QString(settings.value("RmbArgs").toString());
             rButtonList.at(i)->style[RMB] = (settings.value("RmbStyle").toString());
             
-            //rButtonList.at(i)->configButton();
+            rButtonList.at(i)->configButton();
         }
         settings.endArray();
         settings.endGroup();
