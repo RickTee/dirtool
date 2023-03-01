@@ -25,12 +25,12 @@
 #include "rprefsdialog.h"
 #include "rprefs.h"
 
-class RdTool : public QWidget {
+class RDirMan : public QWidget {
     Q_OBJECT
 public:
-    RdTool(QWidget *parent = 0);
-    RdTool(const RdTool& orig);
-    virtual ~RdTool();
+    RDirMan(QWidget *parent = 0);
+    RDirMan(const RDirMan& orig);
+    virtual ~RDirMan();
 
 private:
     void closeEvent(QCloseEvent *event);

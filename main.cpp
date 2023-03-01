@@ -8,7 +8,7 @@
  */
 
 #include <QApplication>
-#include "rdtool.h"
+#include "rdirman.h"
 
 using std::cout;
 using std::endl;
@@ -20,7 +20,7 @@ int main(int argc, char *argv[]) {
     QApplication app(argc, argv);
 
     // create and show your widgets here
-    RdTool win;
+    RDirMan win;
     win.show();
 
     return app.exec();

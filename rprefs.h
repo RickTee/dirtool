@@ -20,7 +20,7 @@
 #include <QList>
 #include "rbutton.h"
 
-#define FILE_NAME   "/.dtool.cfg"
+#define FILE_NAME   "/.dirman.cfg"
 
 #ifdef  __linux__
 #define HOME_PATH   qgetenv("HOME")
@@ -31,6 +31,7 @@
 
 #define NUM_OF_BUTTONS 60
 #define BUILT_IN_COMMS 20
+enum {LMB, MMB, RMB};
 
 class RPrefs {
 public:
@@ -43,7 +44,13 @@ private:
     void setDefaultPrefs(void);
     void createButtons(void);
     void createCommands(void);
+    QString assembleStyle(void);
     QString *fileName;
+    QString TxtColor;
+    QString TxtStyle;
+    QString TxtDecoration;
+    QString BkColor;
+    QString HoverColor;
 public:
     int numOfButtons;
     QList<RButton*> rButtonList;

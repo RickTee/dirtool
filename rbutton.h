@@ -41,32 +41,20 @@ private:
     QHBoxLayout *hbox;
     QAction *mouseAction;
     QProcess process;
-    QString style[3];
     int lmb = 0;
     int mmb = 1;
     int rmb = 2;
 public:
+    QString style[3];
     QString *lmbName;
     QString *lmbCommand;
     QString *lmbArgs;
-    QString *lmbTxtColor;
-    QString *lmbTxtStyle;
-    QString *lmbTxtDecoration;
-    QString *lmbBkColor;
     QString *mmbName;
     QString *mmbCommand;
     QString *mmbArgs;
-    QString *mmbTxtColor;
-    QString *mmbTxtStyle;
-    QString *mmbTxtDecoration;
-    QString *mmbBkColor;
     QString *rmbName;
     QString *rmbCommand;
     QString *rmbArgs;
-    QString *rmbTxtColor;
-    QString *rmbTxtStyle;
-    QString *rmbTxtDecoration;
-    QString *rmbBkColor;
 
 public slots:
     void slotPress(void);

@@ -7,9 +7,9 @@
  * GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007
  */
 #include "version.h"
-#include "rdtool.h"
+#include "rdirman.h"
 
-RdTool::RdTool(QWidget *parent) : QWidget(parent) {
+RDirMan::RDirMan(QWidget *parent) : QWidget(parent) {
 
     prefs = new RPrefs();
     vbox = new QVBoxLayout();
@@ -32,10 +32,10 @@ RdTool::RdTool(QWidget *parent) : QWidget(parent) {
     connect(quitAction, SIGNAL(triggered()), SLOT(close()));
 }
 
-RdTool::~RdTool() {
+RDirMan::~RDirMan() {
 }
 
-void RdTool::createButtonLayout(void) {
+void RDirMan::createButtonLayout(void) {
     int i, j, k = 0;
 
     for (i = 0; i < (NUM_OF_BUTTONS / 6); i++) {
@@ -48,7 +48,7 @@ void RdTool::createButtonLayout(void) {
 
 // Create a menu bar and add a File menu and Help menu'
 
-void RdTool::makeMenu(void) {
+void RDirMan::makeMenu(void) {
     menuBar = new QMenuBar();
     // File menu
     fileMenu = new QMenu("&File");
@@ -78,7 +78,7 @@ void RdTool::makeMenu(void) {
     connect(aboutAction, SIGNAL(triggered()), SLOT(slotAboutDialog()));
 }
 
-void RdTool::slotAboutDialog(void) {
+void RDirMan::slotAboutDialog(void) {
     QDialog * helpAbout = new QDialog(this);
     helpAbout->setModal(true);
     helpAbout->setWindowTitle("About");
@@ -96,23 +96,23 @@ void RdTool::slotAboutDialog(void) {
     helpAbout->show();
 }
 
-void RdTool::slotPrefs(void) {
+void RDirMan::slotPrefs(void) {
     prefdialog = new RPrefsDialog(prefs);
     connect(prefdialog, SIGNAL(sig_dialog_done()), this, SLOT(slot_close_dialog()));
     prefdialog->show();
 }
 
-void RdTool::slot_close_dialog(void) {
+void RDirMan::slot_close_dialog(void) {
     prefdialog->close();
 }
 
-void RdTool::slotExit(void) {
+void RDirMan::slotExit(void) {
     emit exit(0);
 }
 
 // Override closeEvent to quit cleanly when user presses the X
 
-void RdTool::closeEvent(QCloseEvent *event) {
+void RDirMan::closeEvent(QCloseEvent *event) {
     emit exit(0);
     event->accept();
 }

@@ -5,7 +5,7 @@
                    displayName="Header Files"
                    projectFiles="true">
       <itemPath>rbutton.h</itemPath>
-      <itemPath>rdtool.h</itemPath>
+      <itemPath>rdirman.h</itemPath>
       <itemPath>rpane.h</itemPath>
       <itemPath>rprefs.h</itemPath>
       <itemPath>rprefsdialog.h</itemPath>
@@ -20,7 +20,7 @@
                    projectFiles="true">
       <itemPath>main.cpp</itemPath>
       <itemPath>rbutton.cpp</itemPath>
-      <itemPath>rdtool.cpp</itemPath>
+      <itemPath>rdirman.cpp</itemPath>
       <itemPath>rpane.cpp</itemPath>
       <itemPath>rprefs.cpp</itemPath>
       <itemPath>rprefsdialog.cpp</itemPath>
@@ -59,9 +59,9 @@
       </item>
       <item path="rbutton.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="rdtool.cpp" ex="false" tool="1" flavor2="0">
+      <item path="rdirman.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="rdtool.h" ex="false" tool="3" flavor2="0">
+      <item path="rdirman.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="rpane.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -110,9 +110,9 @@
       </item>
       <item path="rbutton.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="rdtool.cpp" ex="false" tool="1" flavor2="0">
+      <item path="rdirman.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="rdtool.h" ex="false" tool="3" flavor2="0">
+      <item path="rdirman.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="rpane.cpp" ex="false" tool="1" flavor2="0">
       </item>

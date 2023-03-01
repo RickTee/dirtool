@@ -2,14 +2,14 @@
 # Use project properties -> Build -> Qt -> Expert -> Custom Definitions.
 TEMPLATE = app
 DESTDIR = dist/Release/GNU-Linux
-TARGET = DirTool
+TARGET = DirMan
 VERSION = 1.0.0
 CONFIG -= debug_and_release app_bundle lib_bundle
 CONFIG += release 
 PKGCONFIG +=
 QT = core gui widgets
-SOURCES += main.cpp rbutton.cpp rdtool.cpp rpane.cpp rprefs.cpp rprefsdialog.cpp
-HEADERS += rbutton.h rdtool.h rpane.h rprefs.h rprefsdialog.h version.h
+SOURCES += main.cpp rbutton.cpp rdirman.cpp rpane.cpp rprefs.cpp rprefsdialog.cpp
+HEADERS += rbutton.h rdirman.h rpane.h rprefs.h rprefsdialog.h version.h
 FORMS +=
 RESOURCES +=
 TRANSLATIONS +=

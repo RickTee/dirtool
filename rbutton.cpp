@@ -21,36 +21,6 @@ RButton::~RButton() {
 
 void RButton::configButton(void) {
 
-    style[lmb] = "QPushButton { background-color: ";
-    style[lmb].append(lmbBkColor);
-    style[lmb].append("; color: ");
-    style[lmb].append(lmbTxtColor);
-    style[lmb].append("; font: ");
-    style[lmb].append(lmbTxtStyle);
-    style[lmb].append("; text-decoration: ");
-    style[lmb].append(lmbTxtDecoration);
-    style[lmb].append("} QPushButton:hover { color: orange }");
-
-    style[mmb] = "QPushButton { background-color: ";
-    style[mmb].append(mmbBkColor);
-    style[mmb].append("; color: ");
-    style[mmb].append(mmbTxtColor);
-    style[mmb].append("; font: ");
-    style[mmb].append(mmbTxtStyle);
-    style[mmb].append("; text-decoration: ");
-    style[mmb].append(mmbTxtDecoration);
-    style[mmb].append("}");
-
-    style[rmb] = "QPushButton { background-color: ";
-    style[rmb].append(rmbBkColor);
-    style[rmb].append("; color: ");
-    style[rmb].append(rmbTxtColor);
-    style[rmb].append("; font: ");
-    style[rmb].append(rmbTxtStyle);
-    style[rmb].append("; text-decoration: ");
-    style[rmb].append(rmbTxtDecoration);
-    style[rmb].append("}");
-
     setStyleSheet(style[lmb]);
     setText(*lmbName);
 
@@ -75,6 +45,7 @@ void RButton::mousePressEvent(QMouseEvent *event) {
     }
     // Pass event to base class
     //QPushButton::mousePressEvent(event);
+    event->accept();
 }
 
 void RButton::mouseReleaseEvent(QMouseEvent *event) {
@@ -83,6 +54,7 @@ void RButton::mouseReleaseEvent(QMouseEvent *event) {
     setText(*lmbName);
     // Pass event to base class
     //QPushButton::mouseReleaseEvent(event);
+    event->accept();
 }
 
 void RButton::slotPress(void) {
