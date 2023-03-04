@@ -67,7 +67,7 @@ void RPrefs::loadPrefs(void) {
             rButtonList.at(i)->rmbCommand = new QString(settings.value("RmbCommand").toString());
             rButtonList.at(i)->rmbArgs = new QString(settings.value("RmbArgs").toString());
             rButtonList.at(i)->style[RMB] = (settings.value("RmbStyle").toString());
-            
+
             rButtonList.at(i)->configButton();
         }
         settings.endArray();
@@ -94,7 +94,7 @@ void RPrefs::savePrefs(void) {
         settings.setValue("MmbCommand", *rButtonList.at(i)->mmbCommand);
         settings.setValue("MmbArgs", *rButtonList.at(i)->mmbArgs);
         settings.setValue("MmbStyle", rButtonList.at(i)->style[MMB]);
-        
+
         settings.setValue("RmbName", *rButtonList.at(i)->rmbName);
         settings.setValue("RmbCommand", *rButtonList.at(i)->rmbCommand);
         settings.setValue("RmbArgs", *rButtonList.at(i)->rmbArgs);
@@ -117,9 +117,9 @@ void RPrefs::setDefaultPrefs(void) {
             BkColor = "red";
             HoverColor = "blue";
             rButtonList.at(i)->style[LMB] = (assembleStyle());
-            
+
         } else if ((i >= 30) && (i <= 35)) {
-            rButtonList.at(i)->lmbName = new QString(QString("T %1 ").arg(i));
+            rButtonList.at(i)->lmbName = new QString(QString("L %1 ").arg(i));
             rButtonList.at(i)->lmbCommand = new QString();
             rButtonList.at(i)->lmbArgs = new QString();
             TxtColor = "black";
@@ -128,8 +128,18 @@ void RPrefs::setDefaultPrefs(void) {
             BkColor = "orange";
             HoverColor = "white";
             rButtonList.at(i)->style[LMB] = (assembleStyle());
+        } else if (i < 6) {
+            rButtonList.at(i)->lmbName = new QString(QString("L %1 ").arg(i));
+            rButtonList.at(i)->lmbCommand = new QString();
+            rButtonList.at(i)->lmbArgs = new QString();
+            TxtColor = "white";
+            TxtStyle = "bold";
+            TxtDecoration = "normal";
+            BkColor = "blue";
+            HoverColor = "orange";
+            rButtonList.at(i)->style[LMB] = (assembleStyle());
         } else {
-            rButtonList.at(i)->lmbName = new QString(QString("T %1 ").arg(i));
+            rButtonList.at(i)->lmbName = new QString(QString("L %1 ").arg(i));
             rButtonList.at(i)->lmbCommand = new QString();
             rButtonList.at(i)->lmbArgs = new QString();
             TxtColor = "black";
@@ -151,7 +161,7 @@ void RPrefs::setDefaultPrefs(void) {
         rButtonList.at(i)->style[MMB] = (assembleStyle());
 
         // Need to set the name for rmb press. Plan is to have a popup menu
-        rButtonList.at(i)->rmbName = new QString(QString("B %1 ").arg(i));
+        rButtonList.at(i)->rmbName = new QString(QString("R %1 ").arg(i));
         rButtonList.at(i)->rmbCommand = new QString();
         rButtonList.at(i)->rmbArgs = new QString();
         TxtColor = ("black");
@@ -178,6 +188,6 @@ QString RPrefs::assembleStyle(void) {
     style.append(" QPushButton:hover { color: ");
     style.append(HoverColor);
     style.append("} ");
-    
+
     return style;
 }

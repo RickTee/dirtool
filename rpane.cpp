@@ -14,14 +14,20 @@ RPane::RPane(QWidget *parent) : QWidget(parent) {
     vbox = new QVBoxLayout();
     rlabel = new QLabel();
     rlineedit = new QLineEdit();
-    rtreeview = new QTreeView();
+    rmodel = new QFileSystemModel();
+    rtreeview = new RgtTreeView();
     rtreeview->setMinimumSize(600, 300);
+    // Does nothing
+    //rtreeview->resizeColumnToContents(0);
+    //rtreeview->setColumnWidth(0, 200);
+    //rtreeview->resizeColumnToContents(0);
+    //rtreeview->setIndentation(20);
+    //rtreeview->setColumnWidth(0, rtreeview->width() / 3);
 
     vbox->addWidget(rtreeview);
     vbox->addWidget(rlineedit);
     this->setLayout(vbox);
 
-    rmodel = new QFileSystemModel();
     // Default to / (root)
     rmodel->setRootPath(QDir::currentPath());
     rtreeview->setModel(rmodel);
@@ -29,6 +35,8 @@ RPane::RPane(QWidget *parent) : QWidget(parent) {
     // Change to users home dir
     rtreeview->setRootIndex(rmodel->index(QDir::homePath()));
     rlabel->setText(QDir::homePath());
+    
+    connect(rlineedit, SIGNAL( editingFinished()), SLOT(slotChangeDir()));
 }
 //RPane::RPane(const RPane& orig) {
 //}
@@ -36,6 +44,6 @@ RPane::RPane(QWidget *parent) : QWidget(parent) {
 RPane::~RPane() {
 }
 
-void RPane::slot_run(void) {
-
+void RPane::slotChangeDir(void) {
+    rtreeview->setRootIndex(rmodel->setRootPath(rlineedit->text()));
 }

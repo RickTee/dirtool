@@ -21,7 +21,7 @@ RButton::~RButton() {
 
 void RButton::configButton(void) {
 
-    setStyleSheet(style[lmb]);
+    setStyleSheet(style[LMB]);
     setText(*lmbName);
 
     //std::cout << "style" << style[0].toStdString() << std::endl;
@@ -35,13 +35,13 @@ void RButton::mousePressEvent(QMouseEvent *event) {
     if (event->button() == Qt::MiddleButton) {
         this->setDown(true);
         setText(*mmbName);
-        setStyleSheet(style[mmb]);
+        setStyleSheet(style[MMB]);
         process.start("rm", QStringList() << (HOME_PATH + TMP_FILE));
     }
     if (event->button() == Qt::RightButton) {
         this->setDown(true);
         setText(*rmbName);
-        setStyleSheet(style[rmb]);
+        setStyleSheet(style[RMB]);
     }
     // Pass event to base class
     //QPushButton::mousePressEvent(event);
@@ -50,7 +50,7 @@ void RButton::mousePressEvent(QMouseEvent *event) {
 
 void RButton::mouseReleaseEvent(QMouseEvent *event) {
     this->setDown(false);
-    setStyleSheet(style[lmb]);
+    setStyleSheet(style[LMB]);
     setText(*lmbName);
     // Pass event to base class
     //QPushButton::mouseReleaseEvent(event);

@@ -6,6 +6,7 @@
                    projectFiles="true">
       <itemPath>rbutton.h</itemPath>
       <itemPath>rdirman.h</itemPath>
+      <itemPath>rgttreeview.h</itemPath>
       <itemPath>rpane.h</itemPath>
       <itemPath>rprefs.h</itemPath>
       <itemPath>rprefsdialog.h</itemPath>
@@ -21,6 +22,7 @@
       <itemPath>main.cpp</itemPath>
       <itemPath>rbutton.cpp</itemPath>
       <itemPath>rdirman.cpp</itemPath>
+      <itemPath>rgttreeview.cpp</itemPath>
       <itemPath>rpane.cpp</itemPath>
       <itemPath>rprefs.cpp</itemPath>
       <itemPath>rprefsdialog.cpp</itemPath>
@@ -62,6 +64,10 @@
       <item path="rdirman.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="rdirman.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="rgttreeview.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="rgttreeview.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="rpane.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -113,6 +119,10 @@
       <item path="rdirman.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="rdirman.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="rgttreeview.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="rgttreeview.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="rpane.cpp" ex="false" tool="1" flavor2="0">
       </item>

@@ -12,7 +12,7 @@
 
 #include <iostream>
 #include <QWidget>
-#include <QCloseEvent>
+#include <QMouseEvent>
 #include <QTreeView>
 #include <QStandardItemModel>
 #include <QFileSystemModel>
@@ -23,6 +23,7 @@
 #include <QString>
 #include <QLineEdit>
 #include <QList>
+#include "rgttreeview.h"
 
 class RPane : public QWidget {
     Q_OBJECT
@@ -32,13 +33,13 @@ public:
     virtual ~RPane();
 private:
     QVBoxLayout *vbox;
-    QTreeView *rtreeview;
+    RgtTreeView *rtreeview;
     QFileSystemModel *rmodel;
     QLineEdit *rlineedit;
     QLabel *rlabel;
 
 private slots:
-    void slot_run(void);
+    void slotChangeDir(void);
 };
 
 #endif /* RPANE_H */

@@ -26,6 +26,7 @@
 #define HOME_PATH   qgetenv("APPDATA")
 #endif
 #define TMP_FILE   "/knight.txt"
+enum {LMB, MMB, RMB};
 
 class RButton : public QPushButton {
     Q_OBJECT
@@ -41,9 +42,6 @@ private:
     QHBoxLayout *hbox;
     QAction *mouseAction;
     QProcess process;
-    int lmb = 0;
-    int mmb = 1;
-    int rmb = 2;
 public:
     QString style[3];
     QString *lmbName;

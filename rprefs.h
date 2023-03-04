@@ -31,7 +31,7 @@
 
 #define NUM_OF_BUTTONS 60
 #define BUILT_IN_COMMS 20
-enum {LMB, MMB, RMB};
+#define BUILT_IN_ARGS 20
 
 class RPrefs {
 public:
@@ -57,7 +57,7 @@ public:
     QList<QString*> rCommands;
     QList<QString*> rArgs;
     QString defaultComms[BUILT_IN_COMMS];
-    QString defaultArgs[BUILT_IN_COMMS];
+    QString defaultArgs[BUILT_IN_ARGS];
     //QMenu *rmbMenu;
 };
 

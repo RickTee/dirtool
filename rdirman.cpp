@@ -111,7 +111,6 @@ void RDirMan::slotExit(void) {
 }
 
 // Override closeEvent to quit cleanly when user presses the X
-
 void RDirMan::closeEvent(QCloseEvent *event) {
     emit exit(0);
     event->accept();
